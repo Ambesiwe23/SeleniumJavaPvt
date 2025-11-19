@@ -139,7 +139,7 @@ public class MyTests extends Base {
         loginPage.clickLogin();
         learningMaterialPage.verifyHeading();
     }
-
+@Test //(dependsOnMethods = "VerifyThatSpacesGetTrimmedOnUsernameOrPassword")
     public void WizardValidation() {
         webAutomationAdvancePage.selectDeviceType("Tablet");
         webAutomationAdvancePage.selectTabletBrand("Samsung");
@@ -147,18 +147,8 @@ public class MyTests extends Base {
         webAutomationAdvancePage.selectQuantity(2);
         webAutomationAdvancePage.enterAddress("1234 Home St, EKasi");
         webAutomationAdvancePage.clickNextBtn();
-
-
-
     }
-    @Test
-    public void WizardNoDeviceShowsError() {
-
-        webAutomationAdvancePage.selectDeviceType("");
-        webAutomationAdvancePage.clickNextBtn();
-
-
-    }
+    public void
 
 
 
