@@ -139,20 +139,49 @@ public class MyTests extends Base {
         loginPage.clickLogin();
         learningMaterialPage.verifyHeading();
     }
-@Test //(dependsOnMethods = "VerifyThatSpacesGetTrimmedOnUsernameOrPassword")
-    public void WizardValidation() {
-        webAutomationAdvancePage.selectDeviceType("Tablet");
-        webAutomationAdvancePage.selectTabletBrand("Samsung");
+
+    @SuppressWarnings("DuplicatedLiteral")
+    @Test //(dependsOnMethods = "VerifyThatSpacesGetTrimmedOnUsernameOrPassword")
+    public void WizardValidation() throws InterruptedException {
+        homePage.clickLearningMaterial();
+        loginPage.enterLoginEmail(" mnengisaambesiwe@gmail.com ");
+        loginPage.enterPasswordId(" Automation ");
+        loginPage.clickLogin();
+        learningMaterialPage.verifyHeading();
+        learningMaterialPage.clickWebAutomationAdvanceTab();
+        webAutomationAdvancePage.selectDeviceType("Phone");
+        webAutomationAdvancePage.selectTabletBrand("Xioami");
         webAutomationAdvancePage.selectStorageSize("64GB");
+        webAutomationAdvancePage.selectQuantity(1);
+        webAutomationAdvancePage.enterAddress("1234 Home St, EKasi");
+        webAutomationAdvancePage.clickNextBtn();
+        webAutomationAdvancePage.enterDiscountCode("SAVE10");
+        webAutomationAdvancePage.clickApplyBtn();
+        webAutomationAdvancePage.clickAddToCartBtn();
+        webAutomationAdvancePage.selectDeviceType("Phone");
+        webAutomationAdvancePage.selectTabletBrand("Apple");
+        webAutomationAdvancePage.selectStorageSize2("128GB");
         webAutomationAdvancePage.selectQuantity(2);
         webAutomationAdvancePage.enterAddress("1234 Home St, EKasi");
         webAutomationAdvancePage.clickNextBtn();
+        webAutomationAdvancePage.enterDiscountCode("SAVE20");
+        webAutomationAdvancePage.clickApplyBtn();
+        webAutomationAdvancePage.clickAddToCartBtn();
+        webAutomationAdvancePage.selectDeviceType("Laptop");
+        webAutomationAdvancePage.selectTabletBrand("Macbook air");
+        webAutomationAdvancePage.selectStorageSize3("256GB");
+        webAutomationAdvancePage.selectQuantity(1);
+        webAutomationAdvancePage.enterAddress("1234 Home St, EKasi");
+        webAutomationAdvancePage.clickNextBtn();
+        webAutomationAdvancePage.clickAddToCartBtn();
+        //Thread.sleep(5000);
+
     }
-    public void
 
 
 
     @AfterTest
+
     public void closeBrowser() {
         driver.quit();
     }

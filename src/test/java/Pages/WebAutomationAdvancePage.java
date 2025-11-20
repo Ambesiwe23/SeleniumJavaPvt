@@ -20,7 +20,11 @@ public class WebAutomationAdvancePage {
     @FindBy(id = "brand")
     WebElement tabletBrand_id;
     @FindBy(id = "storage-64GB")
-    WebElement storageSize_id;
+    WebElement storageSize1_id;
+    @FindBy(id = "storage-128GB")
+    WebElement storageSize2_id;
+    @FindBy(id = "storage-256GB")
+    WebElement storageSize3_id;
     @FindBy(id = "color")
     WebElement colorDropdown_id;
     @FindBy(id = "quantity")
@@ -39,10 +43,15 @@ public class WebAutomationAdvancePage {
     WebElement discountButton_id;
     @FindBy(id = "purchase-device-btn")
     WebElement purchaseButton_id;
+    @FindBy(id = "add-to-cart-btn")
+    WebElement addToCartBtn_id;
 
 
     public WebAutomationAdvancePage(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public static void fillAddressAndContinue(String s) {
     }
 
     public void verifyInventoryHeaderIsDisplayed() {
@@ -60,7 +69,18 @@ public class WebAutomationAdvancePage {
 
     public void selectStorageSize(String storageSize) {
 
-        storageSize_id.click();
+        storageSize1_id.click();
+
+    }
+    public void selectStorageSize2(String storageSize) {
+
+        storageSize2_id.click();
+
+    }
+    public void selectStorageSize3(String storageSize) {
+
+        storageSize3_id.click();
+
     }
 
     public void selectColor(String colorType) {
@@ -95,6 +115,7 @@ public class WebAutomationAdvancePage {
     public void clickPurchaseBtn() {
         purchaseButton_id.click();
     }
+    public void clickAddToCartBtn(){addToCartBtn_id.click();}
 
 
 
