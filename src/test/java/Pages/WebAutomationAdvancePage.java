@@ -1,11 +1,14 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Objects;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
@@ -45,6 +48,8 @@ public class WebAutomationAdvancePage {
     WebElement purchaseButton_id;
     @FindBy(id = "add-to-cart-btn")
     WebElement addToCartBtn_id;
+    @FindBy(id = "purchase-success-toast")   // <-- change if your ID is different
+    WebElement orderSuccessMessage;
 
 
     public WebAutomationAdvancePage(WebDriver driver) {
@@ -72,11 +77,13 @@ public class WebAutomationAdvancePage {
         storageSize1_id.click();
 
     }
+
     public void selectStorageSize2(String storageSize) {
 
         storageSize2_id.click();
 
     }
+
     public void selectStorageSize3(String storageSize) {
 
         storageSize3_id.click();
@@ -100,24 +107,44 @@ public class WebAutomationAdvancePage {
         nextButton_id.click();
     }
 
-    public void clickExpress(){
+    public void clickExpress() {
         express_id.click();
     }
-    public void clickWarranty(){
+
+    public void clickWarranty() {
         warranty_id.click();
     }
-    public void enterDiscountCode(String discount){
+
+    public void enterDiscountCode(String discount) {
         discount_id.sendKeys(discount);
     }
+
     public void clickApplyBtn() {
         discountButton_id.click();
     }
+
     public void clickPurchaseBtn() {
         purchaseButton_id.click();
     }
-    public void clickAddToCartBtn(){addToCartBtn_id.click();}
+
+    public void clickAddToCartBtn() {
+        addToCartBtn_id.click();
+    }
+    public boolean isOrderSuccessful() {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(ExpectedConditions.visibilityOf(orderSuccessMessage));
+            return orderSuccessMessage.getText().contains("Order Successful");
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+}
+
+
 
 
 
    
-}
+

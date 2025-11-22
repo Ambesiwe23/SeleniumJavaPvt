@@ -1,6 +1,5 @@
 package Basics;
 
-import Pages.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -72,9 +71,10 @@ public class LoginToLearningMaterials {
 
 
 
-    public void verifyHeading() {
+    public boolean verifyHeading() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(welcomeHeading_id));
         welcomeHeading_id.isDisplayed();
+        return false;
     }
 
     public void clickWebAutomationAdvanceTab() {
