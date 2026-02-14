@@ -40,23 +40,28 @@ public class LoginToLearningMaterials {
     }
 
     @Test(priority = 2)
+    public void clickFirstLogin() throws InterruptedException {
+        driver.findElement(By.xpath("//*[@id=\"app-root\"]/nav/div[1]/div[3]/button")).click();
+        Thread.sleep(2000);
+    }
+    @Test(priority = 3)
     public void clickLearningMaterials() throws InterruptedException {
         driver.findElement(By.id("nav-btn-practice")).click();
         Thread.sleep(2000);
     }
 
 
-    @Test(priority = 3)
+    @Test(priority = 4)
     public void enterEmail() {
         driver.findElement(By.id("login-email")).sendKeys("mnengisambesiwe@gmail.com");
     }
 
-    @Test(priority = 4)
+    @Test(priority = 5)
     public void enterPassword() {
-        driver.findElement(By.id("login-password")).sendKeys("Automation");
+        driver.findElement(By.id("login-password")).sendKeys("@12345678");
     }
 
-    @Test(priority = 5)
+    @Test(priority = 6)
     public void clickLoginButton() throws InterruptedException {
         driver.findElement(By.id("login-submit")).click();
         Thread.sleep(2000);

@@ -47,7 +47,7 @@ public class LoginPage {
             String alertText = alert.getText();
             System.out.println("Alert message: " + alertText);
 
-            // ASSERTION
+
             Assert.assertEquals(alertText, "Expected alert message", "Alert text mismatch!");
 
             alert.accept();

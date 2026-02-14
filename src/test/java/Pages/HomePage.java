@@ -14,6 +14,11 @@ public class HomePage {
     @FindBy(id = "nav-btn-practice")
     WebElement LearningMaterial_id;
 
+    @FindBy(id = "//*[@id=\"app-root\"]/nav/div[1]/div[3]/button")
+    WebElement LoginBtn_id;
+
+
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -32,4 +37,7 @@ public class HomePage {
         return new WebAutomationAdvancePage(driver);
     }
 
+    public void clickLoginBtn() {
+        LoginBtn_id.click();
+    }
 }
